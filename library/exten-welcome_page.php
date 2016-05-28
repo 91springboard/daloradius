@@ -29,7 +29,8 @@ echo "
 		<h3> ".$l['all']['daloRADIUSVersion']." </h3>
 		<h4> <a href=\"mailto:liran.tal@gmail.com\"> Liran Tal </a> </h4>
 		<br/><br/><br/>
-		<img src='images/daloradius_logo.jpg' border=0 />
+		<img src='images/daloradius_small.png' border=0 width='250'/>
+		<h3>91springboard</h3>
 	</center>
 ";
 
