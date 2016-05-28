@@ -4,7 +4,7 @@
                                 <input name="username" value="Search" />
                                 </form>
 
-                                <h1><a href="index.php"> <img src="images/daloradius_small.png" border=0/></a></h1>
+                                <h1><a href="index.php"> <img src="images/daloradius_small.png" border=0 width="50"/></a></h1>
 
                                 <h2>
                                 

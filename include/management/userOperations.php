@@ -66,8 +66,10 @@ function userDisable($username, $divContainer) {
 	
 		$user = $dbSocket->escapeSimple($value);		// clean username argument from harmful code
 
-		$sql = "INSERT IGNORE INTO ".$configValues['CONFIG_DB_TBL_RADUSERGROUP']." (Username,Groupname,Priority) ".
-				" VALUES ('$user','daloRADIUS-Disabled-Users',0) ";		
+//		$sql = "INSERT IGNORE INTO ".$configValues['CONFIG_DB_TBL_RADUSERGROUP']." (Username,Groupname,Priority) ".
+//				" VALUES ('$user','daloRADIUS-Disabled-Users',0) ";
+		$sql = "UPDATE ".$configValues['CONFIG_DB_TBL_RADUSERGROUP']." SET Groupname='daloRADIUS-Disabled-Users', ".
+			"Priority=0 WHERE Username='".$user."'";
 		$res = $dbSocket->query($sql);
 	
 	}
