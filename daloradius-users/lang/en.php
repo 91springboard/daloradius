@@ -750,7 +750,7 @@ Welcome to the Users Portal.<br/><br/>
 By logging-in with your account username and password you will be able to edit your contact settings
 as well as track your surfing habbits and view visual graphs.<br/><br/>
 Regards,<br/>
-daloRADIUS Staff.<br/><br/>";
+91springboard Staff.<br/><br/>";
 
 $l['helpPage']['mngradproxys'] = "";
 $l['helpPage']['mngradproxyslist'] = "";
