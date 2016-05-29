@@ -83,7 +83,7 @@ function printTicketsHTMLTable($accounts, $ticketCost, $ticketTime) {
 	$trCounter = 0;
 	foreach($accounts as $userpass) {
 		
-		list($user, $pass) = split(",", $userpass);
+		list($user, $pass) = explode(",", $userpass);
 
 		if ($trCounter > 2)
 			$trCounter = 0;
@@ -105,7 +105,8 @@ function printTicketsHTMLTable($accounts, $ticketCost, $ticketTime) {
 						<tbody>
 						<tr align='center'>
 							<td colspan='2'>
-								<img src='$ticketLogoFile' alt='Logo' />
+								<img src='$ticketLogoFile' alt='Logo' width='60' />
+								<h3>91springboard</h3>
 							</td>
 						</tr>
 						<tr>
@@ -138,6 +139,7 @@ function printTicketsHTMLTable($accounts, $ticketCost, $ticketTime) {
 								</font>
 							</td>
 						</tr>
+						<!--
 						<tr>
 							<td>
 								<b>Price</b>:
@@ -148,6 +150,7 @@ function printTicketsHTMLTable($accounts, $ticketCost, $ticketTime) {
 								</font>
 							</td>
 						</tr>
+						-->
 						<tr>
 							<td colspan='2' valign='top'>
 								<font size='1'>
