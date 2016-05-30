@@ -25,8 +25,7 @@
 $l['all']['daloRADIUS'] = "daloRADIUS 0.9-9";
 $l['all']['daloRADIUSVersion'] = "version 0.9-9";
 $l['all']['copyright1'] = "RADIUS Management, Reporting, Accounting and Billing by <a href=\"http://www.enginx.com\">Enginx</a>";
-$l['all']['copyright2'] = "daloRADIUS Copyright &copy; 2007 by Liran Tal of <a href=\"http://www.enginx.com\">Enginx</a> <br/>
-Template design by <a href=\"http://www.sixshootermedia.com\">Six Shooter Media</a>.";
+$l['all']['copyright2'] = "Copyright  &copy;  2016 | 91springboard";
 $l['all']['ID'] = "ID";
 $l['all']['PoolName'] = "Pool Name";
 $l['all']['CalledStationId'] = "CalledStationId";

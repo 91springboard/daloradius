@@ -41,6 +41,12 @@
 			if (trim($currentPassword) != "") {
 
 				include 'library/opendb.php';
+
+				if ( !empty($configValues['CONFIG_DB_PASSWORD_ENCRYPTION']) && $configValues['CONFIG_DB_PASSWORD_ENCRYPTION'] === 'md5') {
+					$currentPassword = md5($currentPassword);
+					$newPassword = md5($newPassword);
+
+				}
 				
 				$sql = "SELECT portalloginpassword FROM ".$configValues['CONFIG_DB_TBL_DALOUSERINFO'].
 					" WHERE username='".$dbSocket->escapeSimple($login)."'";
@@ -50,7 +56,7 @@
 				$logDebugSQL .= $sql . "\n";
 				
 				if ( ($res->numRows() == 1) && ($row[0] == $currentPassword) ) {
-	
+					
 					$sql = "UPDATE ".$configValues['CONFIG_DB_TBL_DALOUSERINFO'].
 						" SET portalloginpassword='".$dbSocket->escapeSimple($newPassword)."'".
 						" WHERE UserName='".$dbSocket->escapeSimple($login)."'";

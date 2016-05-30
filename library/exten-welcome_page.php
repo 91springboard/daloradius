@@ -25,11 +25,13 @@
 echo "
 	<center>
 
-		<h2> daloRADIUS Web Management Server </h2>
+		<h2> RADIUS Web Management Server </h2>
+		<!--
 		<h3> ".$l['all']['daloRADIUSVersion']." </h3>
 		<h4> <a href=\"mailto:liran.tal@gmail.com\"> Liran Tal </a> </h4>
+		-->
 		<br/><br/><br/>
-		<img src='images/daloradius_small.png' border=0 width='250'/>
+		<img src='images/daloradius_small.png' border=0 width='200'/>
 		<h3>91springboard</h3>
 	</center>
 ";

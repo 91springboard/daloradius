@@ -41,14 +41,6 @@
 	        <li><a href="rep-logs-system.php"><b>&raquo;</b><?php echo $l['button']['SystemLog'] ?></a></li>
 
 	</ul>
-	
-	<h3>Support</h3>
-
-	<p class="news">
-		daloRADIUS <br/>
-		RADIUS Management 
-		<a href="http://www.enginx.com" class="more">Read More &raquo;</a>
-	</p>
 
 
 	<h2>Search</h2>
