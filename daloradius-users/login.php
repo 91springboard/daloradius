@@ -91,7 +91,7 @@ body {
 		</form>
 	</div>
 
-	<div id="contentnorightbar">
+	<div id="contentnorightbar" style="margin-left: 385px;">
 
 		<h2 id="Intro"><a href="#" onclick="javascript:toggleShowDiv('helpPage')"><?php echo $l['Intro']['login.php'] ?></a></h2>
 

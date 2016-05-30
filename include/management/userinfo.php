@@ -108,7 +108,9 @@ echo "
 		$ui_enableUserPortalLogin = 1;
 		$isenableUserPortalLogin = "";
 	}
-	
+
+
+
 echo "
 
 	<label for='userupdate' class='form'>".$l['ContactInfo']['EnableUserUpdate']."</label>
@@ -118,11 +120,28 @@ echo "
 	<label for='userupdate' class='form'>".$l['ContactInfo']['EnablePortalLogin']."</label>
 	<input type='checkbox' class='form' name='enableUserPortalLogin' value='$ui_enableUserPortalLogin' $isenableUserPortalLogin tabindex=313 />
         <br/>
+    ";
 
-	<label for='portalLoginPassword' class='form'>".$l['ContactInfo']['PortalLoginPassword']."</label>
-	<input name='portalLoginPassword' id='portalLoginPassword' value='"; if (isset($ui_PortalLoginPassword)) echo $ui_PortalLoginPassword; echo "' tabindex=314 />
+
+if ($configValues['CONFIG_IFACE_PASSWORD_HIDDEN'] == "yes"){
+
+	echo "
+	<label for='portalLoginPassword' class='form'>" . $l['ContactInfo']['PortalLoginPassword'] . "</label>
+	<input name='portalLoginPassword' type='password' id='portalLoginPassword' value='";
+	if (isset($ui_PortalLoginPassword)) echo $ui_PortalLoginPassword;
+	echo "' tabindex=314 />
         <br/>
-
+     ";
+} else {
+	echo "
+	<label for='portalLoginPassword' class='form'>" . $l['ContactInfo']['PortalLoginPassword'] . "</label>
+	<input name='portalLoginPassword' id='portalLoginPassword' value='";
+	if (isset($ui_PortalLoginPassword)) echo $ui_PortalLoginPassword;
+	echo "' tabindex=314 />
+        <br/>
+     ";
+}
+echo "
 	<br/>
 	<label for='creationdate' class='form'>".$l['all']['CreationDate']."</label>
 	<input disabled value='"; if (isset($ui_creationdate)) echo $ui_creationdate; echo "' tabindex=314 />

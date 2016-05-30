@@ -55,6 +55,12 @@
 					$logDebugSQL .= $sqlTestPassword . "\n";
 
 				}
+
+				if ( !empty($configValues['CONFIG_DB_PASSWORD_ENCRYPTION']) && $configValues['CONFIG_DB_PASSWORD_ENCRYPTION'] === 'md5') {
+					$currentPassword = md5($currentPassword);
+					$newPassword = md5($newPassword);
+
+				}
 				
 				$sql = "SELECT value, id FROM ".$configValues['CONFIG_DB_TBL_RADCHECK'].
 					" WHERE username='".$dbSocket->escapeSimple($login)."' AND".
@@ -67,10 +73,11 @@
 				$logDebugSQL .= $sql . "\n";
 				
 				if ( ($res->numRows() == 1) && ($row[0] == $currentPassword) ) {
-	
+
 					$sql = "UPDATE ".$configValues['CONFIG_DB_TBL_RADCHECK'].
 						" SET value='".$dbSocket->escapeSimple($newPassword)."'".
 						" WHERE id='$passwordRowId'";
+					
 					$res = $dbSocket->query($sql);
 					$logDebugSQL .= $sql . "\n";
 

@@ -28,11 +28,6 @@
 
 include('../../library/checklogin.php');
 
-$ticketInformation = "Information: To use this card, please connect <br/>".
-						"your device to the nearest ssid. Open your web <br/>".
-						"browser and enter each needed field.";
-$ticketLogoFile = "/images/daloradius_small.png";			
-
 
 if (isset($_REQUEST['type']) && $_REQUEST['type'] == "batch") {
 	
@@ -45,6 +40,10 @@ if (isset($_REQUEST['type']) && $_REQUEST['type'] == "batch") {
 	
 	include_once('../../library/opendb.php');
 	include_once('../management/pages_common.php');
+
+	global $configValues;
+	$ticketInformation = $configValues['TICKET_INFORMATION'];
+	$ticketLogoFile = "/images/daloradius_banner.jpeg";
 
 	$sql = "SELECT ".$configValues['CONFIG_DB_TBL_DALOBILLINGPLANS'].
 			".planCost AS planCost, ".$configValues['CONFIG_DB_TBL_DALOBILLINGPLANS'].".planTimeBank AS planTimeBank, ".
@@ -59,7 +58,7 @@ if (isset($_REQUEST['type']) && $_REQUEST['type'] == "batch") {
 	
 	$ticketCurrency = $row['planCurrency'];
 	$ticketCost = $row['planCost'] ." " . $ticketCurrency;
-	$ticketTime = time2str($row['planTimeBank']);
+	$ticketTime = $row['planTimeBank'];
 	
 	printTicketsHTMLTable($accounts, $ticketCost, $ticketTime);
 
@@ -105,18 +104,15 @@ function printTicketsHTMLTable($accounts, $ticketCost, $ticketTime) {
 						<tbody>
 						<tr align='center'>
 							<td colspan='2'>
-								<img src='$ticketLogoFile' alt='Logo' width='60' />
-								<h3>91springboard</h3>
+								<img src='$ticketLogoFile' alt='Logo' width='200' style='padding: 10px' />
 							</td>
 						</tr>
 						<tr>
 							<td>
-								<b>Login</b>: 
+								<b>Username</b>: 
 							</td>
-							<td>
-								<font size='2'>
+							<td style='font-size: 12px; padding: 5px;'>
 								$user
-								</font>
 							</td>
 						</tr>
 						<tr>
@@ -124,9 +120,7 @@ function printTicketsHTMLTable($accounts, $ticketCost, $ticketTime) {
 								<b>Password</b>:
 							</td>
 							<td>
-								<font size='2'>
 								$pass
-								</font>
 							</td>
 						</tr>
 						<tr>
@@ -134,28 +128,12 @@ function printTicketsHTMLTable($accounts, $ticketCost, $ticketTime) {
 								<b>Validity</b>:
 							</td>
 							<td>
-								<font size='2'>
 								$ticketTime
-								</font>
 							</td>
 						</tr>
-						<!--
 						<tr>
-							<td>
-								<b>Price</b>:
-							</td>
-							<td>
-								<font size='2'>
-								$ticketCost
-								</font>
-							</td>
-						</tr>
-						-->
-						<tr>
-							<td colspan='2' valign='top'>
-								<font size='1'>
+							<td colspan='2' valign='top' style='font-size: 12px; padding: 5px;'>		
 								$ticketInformation
-								</font>
 							</td>
 						</tr>
 						</tbody>

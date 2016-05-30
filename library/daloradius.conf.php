@@ -93,6 +93,9 @@ $configValues['CONFIG_DASHBOARD_DALO_SECRETKEY'] = 'sillykey';
 $configValues['CONFIG_DASHBOARD_DALO_DEBUG'] = '1';
 $configValues['CONFIG_DASHBOARD_DALO_DELAYSOFT'] = '5';
 $configValues['CONFIG_DASHBOARD_DALO_DELAYHARD'] = '15';
+$configValues['TICKET_INFORMATION'] = 'Information: To use this card, please connect your device to the nearest ssid '.
+    '<b>Mario</b> and password <b>gam3c#@nge</b>. <br/> Open your web browser and enter each needed field.';
+$configValues['DEFAULT_USER_LOGIN_PASSWORD'] = 'test123';
 
 /*
 // Locations Configuration directives

@@ -4,7 +4,7 @@
                                 <input value="Search" />
                                 </form>
 
-                                <h1><a href="index.php"> <img src="images/daloradius_small.png" border=0 width="60"/></a></h1>
+                                <h1><a href="index.php"> <img src="images/daloradius_banner.jpeg" border=0 width="200"/></a></h1>
 
                                 <h2>
                                 

@@ -42,6 +42,9 @@ include 'library/opendb.php';
 $login_user = $_POST['login_user'];
 $login_pass = $_POST['login_pass'];
 
+$login_pass = md5($login_pass);
+
+
 // check if the user id and password combination exist in database
 $sql = "SELECT ".$configValues['CONFIG_DB_TBL_DALOUSERINFO'].".UserName FROM ".$configValues['CONFIG_DB_TBL_DALOUSERINFO'].
 		" WHERE UserName = '".
