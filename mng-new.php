@@ -29,6 +29,8 @@
 	$logAction = "";
 	$logDebugSQL = "";
 
+	global $configValues;
+
 	isset($_POST['username']) ? $username = $_POST['username'] : $username = "";
 	isset($_POST['password']) ? $password = $_POST['password'] : $password = "";
 	isset($_POST['groups']) ? $groups = $_POST['groups'] : $groups = "";
@@ -92,7 +94,7 @@
 	isset($_POST['changeUserInfo']) ? $ui_changeuserinfo = $_POST['changeUserInfo'] : $ui_changeuserinfo = "0";
 	
 	isset($_POST['enableUserPortalLogin']) ? $ui_enableUserPortalLogin = $_POST['enableUserPortalLogin'] : $ui_enableUserPortalLogin = "0";
-	isset($_POST['portalLoginPassword']) ? $ui_PortalLoginPassword = $_POST['portalLoginPassword'] : $ui_PortalLoginPassword = "";
+	isset($_POST['portalLoginPassword']) ? $ui_PortalLoginPassword = md5($_POST['portalLoginPassword']) : $ui_PortalLoginPassword = md5($configValues['DEFAULT_USER_LOGIN_PASSWORD']);
 	
 	isset($_POST['dictAttributes']) ? $dictAttributes = $_POST['dictAttributes'] : $dictAttributes = "";		
 
