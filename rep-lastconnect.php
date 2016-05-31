@@ -91,6 +91,9 @@
 	$res = $dbSocket->query($sql);
 	$numrows = $res->numRows();
 
+	// increment end_date by one day
+	$enddate=strftime("%Y-%m-%d", strtotime("$enddate +1 day"));
+
 	$sql = "SELECT ".
 			$configValues['CONFIG_DB_TBL_RADPOSTAUTH'].".".$tableSetting['postauth']['user'].", ".
 			$configValues['CONFIG_DB_TBL_RADPOSTAUTH'].".pass, ".
@@ -99,9 +102,10 @@
 		FROM ".$configValues['CONFIG_DB_TBL_RADPOSTAUTH']." 
         WHERE (".$configValues['CONFIG_DB_TBL_RADPOSTAUTH'].".".$tableSetting['postauth']['user']." LIKE '".
 	$dbSocket->escapeSimple($usernameLastConnect)."%') $radiusReplySQL ". 
-		" AND (".$tableSetting['postauth']['date']." >='$startdate' AND ".$tableSetting['postauth']['date']." <='$enddate') 
+		" AND (".$tableSetting['postauth']['date']." >='$startdate' AND ".$tableSetting['postauth']['date']." <'$enddate')
 		ORDER BY ".$configValues['CONFIG_DB_TBL_RADPOSTAUTH'].".$orderBy $orderType 
 		LIMIT $offset, $rowsPerPage";
+
 
         $res = $dbSocket->query($sql);
         $logDebugSQL = "";
