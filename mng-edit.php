@@ -568,6 +568,9 @@
 	$row = $res->fetchRow();
 	$user_password = $row[0];
 
+	if ($configValues['CONFIG_IFACE_PASSWORD_HIDDEN'] == "yes")
+		$hiddenPassword = "type=\"password\"";
+
 
 	/* fill-in all the user info details */
 	$sql = "SELECT firstname, lastname, email, department, company, workphone, homephone, mobilephone, address, city, state, country, zip, notes, ".
@@ -764,8 +767,8 @@ function enableUser() {
 
                 <li class='fieldset'>
                 <label for='password' class='form'><?php echo $l['all']['Password']?></label>
-                <input name='password' type='text' id='password' value='<?php if (isset($user_password)) echo $user_password ?>'
-                        <?php if (isset($hiddenPassword)) echo $hiddenPassword ?> disabled tabindex=101 />
+                <input name='password'  id='password' value='<?php if (isset($user_password)) echo $user_password ?>'
+                        <?php if (isset($hiddenPassword)){echo $hiddenPassword;} else{echo "type='text'";} ?> disabled tabindex=101 />
                 <img src='images/icons/comment.png' alt='Tip' border='0' onClick="javascript:toggleShowDiv('passwordTooltip')" />
 
                 <div id='passwordTooltip'  style='display:none;visibility:visible' class='ToolTip'>
