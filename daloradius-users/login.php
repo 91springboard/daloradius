@@ -30,7 +30,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
 <script src="library/javascript/pages_common.js" type="text/javascript"></script>
-<title>daloRADIUS</title>
+<title>91springboard User Portal</title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" href="css/1.css" type="text/css" media="screen,projection" />
 
