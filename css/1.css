@@ -249,9 +249,12 @@ body {
 #sidebar input {
 	padding:4px;
 	background:#7a7979;
+	font-size: small;
+	font-family: Verdana sans-serif;
+	font-weight: bold;
 	border:1px solid #222222;
 	color:#FFFFFF;
-	font:90% Verdana;
+	/*font:90% Verdana;*/
 	width:190px;
 }
 
