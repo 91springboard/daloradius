@@ -137,8 +137,44 @@
 			
 	
 		$res = $dbSocket->query($sql);
-		
 		$logDebugSQL .= $sql . "\n";
+
+	if ($batch_name) {
+
+		$exportCSV = "Username,Password||";
+
+		$sql = "SELECT " .
+			$configValues['CONFIG_DB_TBL_RADCHECK'] . ".username," .
+			$configValues['CONFIG_DB_TBL_RADCHECK'] . ".value AS password" .
+			" FROM " . $configValues['CONFIG_DB_TBL_RADCHECK'] .
+			" LEFT JOIN " . $configValues['CONFIG_DB_TBL_DALOUSERBILLINFO'] .
+			" ON " .
+			"(" . $configValues['CONFIG_DB_TBL_RADCHECK'] . ".username = " .
+			$configValues['CONFIG_DB_TBL_DALOUSERBILLINFO'] . ".username) " .
+			" LEFT JOIN " . $configValues['CONFIG_DB_TBL_DALOBATCHHISTORY'] .
+			" ON " .
+			"(" . $configValues['CONFIG_DB_TBL_DALOUSERBILLINFO'] . ".batch_id = " .
+			$configValues['CONFIG_DB_TBL_DALOBATCHHISTORY'] . ".id) " .
+			" WHERE " . $configValues['CONFIG_DB_TBL_DALOBATCHHISTORY'] . ".batch_name = '$batch_name'";
+
+		$result = $dbSocket->query($sql);
+		$logDebugSQL .= $sql . "\n";
+
+		echo gettype($result);
+
+		while($row = $result->fetchRow(DB_FETCHMODE_ASSOC)) {
+			$username = $row['username'];
+			$password = $row['password'];
+
+			$exportCSV .= "$username,$password||";
+		}
+
+		// remove the last || chars to sanitize it for proper format
+		$exportCSV = substr($exportCSV, 0, -2);
+
+
+	}
+
 		
 		echo "<table border='0' class='table1'>\n";
 		echo "
@@ -151,6 +187,9 @@
 	  	              			<br/>
 								<input class='button' type='button' value='Total Users CSV Export'
 									onClick=\"javascript:window.location.href='include/management/fileExport.php?reportFormat=csv&reportType=reportsBatchTotalUsers'\"
+								/>
+								<input class='button' type='button' value='Print Tickets'
+									onClick=\"javascript:window.open('include/common/printTickets.php?type=batch&plan=$plan&accounts=$exportCSV')\"
 								/>
 								<br/><br/>
 			";
