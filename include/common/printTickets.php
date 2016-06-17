@@ -104,7 +104,7 @@ function printTicketsHTMLTable($accounts, $ticketCost, $ticketTime) {
 						<tbody>
 						<tr align='center'>
 							<td colspan='2'>
-								<img src='$ticketLogoFile' alt='Logo' width='200' style='padding: 10px' />
+								<img src='$ticketLogoFile' alt='91springboard' width='200' style='padding: 10px' />
 							</td>
 						</tr>
 						<tr>
