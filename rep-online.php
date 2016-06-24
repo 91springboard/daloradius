@@ -203,6 +203,12 @@
 			".$l['all']['HotSpot']." / 
 			".$l['all']['NasShortname']."
 		</th>
+		
+		<th scope='col'>
+		<a title='Sort' class='novisit' href=\"" . $_SERVER['PHP_SELF'] . "?usernameOnline=$usernameOnline&orderBy=NASIPAddress&orderType=$orderTypeNextPage\">
+			".$l['all']['HotSpot']." / 
+			".$l['all']['NasIPHost']."
+		</th>
 
 		<th scope='col'>
 			".$l['all']['TotalTraffic']."
@@ -248,6 +254,7 @@
 				<td> $start </td>
 				<td> $totalTime </td>
 				<td> $hotspot $nasshortname </td>
+				<td> $nasip</td>
 				<td> ".$l['all']['Upload'].": $upload <br/> ".$l['all']['Download'].": $download <br/> ".$l['all']['TotalTraffic'].": <b>$traffic</b> </td>
 		</tr>";
 	}
