@@ -103,5 +103,6 @@ if (isset($_POST['submit'])) {
 
 include_once('library/config_read.php');
 $log = "visited page: ";
+include('include/config/logging.php');
 
 ?>
