@@ -25,7 +25,7 @@ if (isset($_GET['reportFormat'])) {
 
 				include_once('../../library/opendb.php');
 
-				$outputHeader = "Id,NAS/Hotspot,UserName,IP Address,Start Time,Stop Time,".
+				$outputHeader = "Id,NAS/Hotspot,UserName,IP Address,User Device MAC,Start Time,Stop Time,".
 						"Total Session Time (seconds),Total Upload (bytes),Total Downloads (bytes),".
 						"Termination Cause,NAS IP Address".
 						"\n";
@@ -36,6 +36,7 @@ if (isset($_GET['reportFormat'])) {
 			                ".name as hotspot, ".$configValues['CONFIG_DB_TBL_RADACCT'].
 			                ".UserName, ".$configValues['CONFIG_DB_TBL_RADACCT'].
 		        	        ".FramedIPAddress, ".$configValues['CONFIG_DB_TBL_RADACCT'].
+                            ".CallingStationID, ".$configValues['CONFIG_DB_TBL_RADACCT'].
 			                ".AcctStartTime, ".$configValues['CONFIG_DB_TBL_RADACCT'].
 			                ".AcctStopTime, ".$configValues['CONFIG_DB_TBL_RADACCT'].
 			                ".AcctSessionTime, ".$configValues['CONFIG_DB_TBL_RADACCT'].
@@ -54,7 +55,7 @@ if (isset($_GET['reportFormat'])) {
 
 				        while($row = $res->fetchRow()) {
 						$outputContent .= "$row[0],$row[1],$row[2],$row[3],$row[4],$row[5],$row[6],".
-									"$row[7],$row[8],$row[9],$row[10]\n";
+									"$row[7],$row[8],$row[9],$row[10],$row[11]\n";
 					}
 
 
