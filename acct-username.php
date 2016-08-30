@@ -91,6 +91,7 @@
 			".name as hotspot, ".$configValues['CONFIG_DB_TBL_RADACCT'].
 			".UserName, ".$configValues['CONFIG_DB_TBL_RADACCT'].
 			".FramedIPAddress, ".$configValues['CONFIG_DB_TBL_RADACCT'].
+			".CallingStationID, ".$configValues['CONFIG_DB_TBL_RADACCT'].
 			".AcctStartTime, ".$configValues['CONFIG_DB_TBL_RADACCT'].
 			".AcctStopTime, ".$configValues['CONFIG_DB_TBL_RADACCT'].
 			".AcctSessionTime, ".$configValues['CONFIG_DB_TBL_RADACCT'].
@@ -109,6 +110,7 @@
 			".name as hotspot, ".$configValues['CONFIG_DB_TBL_RADACCT'].
 			".UserName, ".$configValues['CONFIG_DB_TBL_RADACCT'].
 			".FramedIPAddress, ".$configValues['CONFIG_DB_TBL_RADACCT'].
+			".CallingStationID, ".$configValues['CONFIG_DB_TBL_RADACCT'].
 			".AcctStartTime, ".$configValues['CONFIG_DB_TBL_RADACCT'].
 			".AcctStopTime, ".$configValues['CONFIG_DB_TBL_RADACCT'].
 			".AcctSessionTime, ".$configValues['CONFIG_DB_TBL_RADACCT'].
@@ -172,6 +174,11 @@
 			<br/>
 			<a class='novisit' href=\"" . $_SERVER['PHP_SELF'] . "?username=$username&orderBy=framedipaddress&orderType=$orderTypeNextPage\">
 			".$l['all']['IPAddress']."</a>
+			</th>
+			<th scope='col'> 
+			<br/>
+			<a class='novisit' href=\"" . $_SERVER['PHP_SELF'] . "?username=$username&orderBy=callingstationid&orderType=$orderTypeNextPage\">
+			".$l['all']['CallingStationID']."</a>
 			</th>
 			<th scope='col'> 
 			<br/>
@@ -250,11 +257,12 @@
 						<td> $row[3] </td>
 						<td> $row[4] </td>
 						<td> $row[5] </td>
-						<td> ".time2str($row[6])." </td>
-						<td> ".toxbyte($row[7])."</td>
+						<td> $row[6] </td>
+						<td> ".time2str($row[7])." </td>
 						<td> ".toxbyte($row[8])."</td>
-						<td> $row[9] </td>
+						<td> ".toxbyte($row[9])."</td>
 						<td> $row[10] </td>
+						<td> $row[11] </td>
 				</tr>");
 	        }
 
