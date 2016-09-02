@@ -33,7 +33,7 @@
 	isset($_REQUEST['nasport']) ? $nasport = $_REQUEST['nasport'] : $nasport = "";
 	isset($_REQUEST['nassecret']) ? $nassecret = $_REQUEST['nassecret'] : $nassecret = "";
 	isset($_REQUEST['packettype']) ? $packettype = $_REQUEST['packettype'] : $packettype = "";
-	isset($_REQUEST['customattributes']) ? $customAttributes = $_REQUEST['customattributes'] : $customAttributes = "";
+	isset($_REQUEST['customattributes']) ? $customAttributes = $_REQUEST['customattributes'] : $customAttributes = "framed-ip-address=";
 	
 
     if (isset($_REQUEST['submit'])) {

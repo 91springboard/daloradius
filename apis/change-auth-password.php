@@ -1,19 +1,12 @@
 <?php
 header("Access-Control-Allow-Origin: *");
+
 isset($_POST['username']) ? $username = $_POST['username'] : $username = "";
 isset($_POST['currentPassword']) ? $currentPassword = $_POST['currentPassword'] : $currentPassword = "";
 isset($_POST['newPassword']) ? $newPassword = $_POST['newPassword'] : $newPassword = "";
 isset($_POST['confirmPassword']) ? $confirmPassword = $_POST['confirmPassword'] : $confirmPassword = "";
 
-function actionSuccessful (){
-    echo "Success";
-    http_response_code(200);
-}
-
-function actionFailed ($error_text){
-    echo "Error : ".$error_text;
-    http_response_code(400);
-}
+include 'utils.php';
 
 $logAction = "";
 $logDebugSQL = "";
@@ -24,7 +17,7 @@ if (isset($_POST['submit'])) {
 
         if (trim($currentPassword) != "") {
 
-            include 'library/opendb.php';
+            include '../library/opendb.php';
 
             global $configValues;
 
@@ -84,7 +77,7 @@ if (isset($_POST['submit'])) {
 
             }
 
-            include 'library/closedb.php';
+            include '../library/closedb.php';
 
         } else {
             actionFailed("current password is empty");
@@ -101,8 +94,6 @@ if (isset($_POST['submit'])) {
 }
 
 
-include_once('library/config_read.php');
+include_once('../library/config_read.php');
 $log = "visited page: ";
-include('include/config/logging.php');
-
-?>
+include('../include/config/logging.php');
