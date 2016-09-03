@@ -253,7 +253,7 @@
 				<td> IP: $ip<br/>MAC: $usermac</td>
 				<td> $start </td>
 				<td> $totalTime </td>
-				<td> $hotspot $nasshortname </td>
+				<td> $hotspot / $nasshortname </td>
 				<td> $nasip</td>
 				<td> ".$l['all']['Upload'].": $upload <br/> ".$l['all']['Download'].": $download <br/> ".$l['all']['TotalTraffic'].": <b>$traffic</b> </td>
 		</tr>";
