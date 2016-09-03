@@ -8,7 +8,6 @@ isset($_POST['nasaddr']) ? $nasaddr = $_POST['nasaddr'] : $nasaddr = "";
 isset($_POST['nasport']) ? $nasport = $_POST['nasport'] : $nasport = "";
 isset($_POST['nassecret']) ? $nassecret = $_POST['nassecret'] : $nassecret = "";
 isset($_POST['customattributes']) ? $customAttributes = $_POST['customattributes'] : $customAttributes = "";
-isset($_POST['commanddebug']) ? $commanddebug = $_POST['commanddebug'] : $commanddebug = "no";
 
 include 'utils.php';
 
@@ -31,11 +30,12 @@ if (isset($_POST['submit'])) {
         $username = $_POST['username'];
 
         // process advanced options to pass to radclient
-        isset($_POST['debug']) ? $debug = $_POST['debug'] : $debug = "no";
+        isset($_POST['debug']) ? $debug = $_POST['debug'] : $debug = "yes";
         isset($_POST['timeout']) ? $timeout = $_POST['timeout'] : $timeout = 3;
         isset($_POST['retries']) ? $retries = $_POST['retries'] : $retries = 1;
         isset($_POST['count']) ? $count = $_POST['count'] : $count = 1;
         isset($_POST['requests']) ? $requests = $_POST['requests'] : $requests = 1;
+        isset($_POST['commanddebug']) ? $commanddebug = $_POST['commanddebug'] : $commanddebug = "no";
 
         // create the optional arguments variable
 
@@ -59,11 +59,11 @@ if (isset($_POST['submit'])) {
         $successMsg = "Disconnect-ACK";
 
         if (strpos($commandMsg, $successMsg) !== false){
-            $logAction .= "User disconnect action performed on user [$username] on page: ";
+            $logAction .= "User disconnect action performed successfully on user [$username] on page: ";
             actionSuccessful();
         }else{
-            $logAction .= "User disconnect action performed on user [$username] on page: ";
-            if ($commanddebug === "no"){
+            $logAction .= "User disconnect action performed failed on user [$username] on page: ";
+            if ($commanddebug === "no") {
                 $commandMsg = "Failed";
             }
             actionFailed($commandMsg);
