@@ -8,7 +8,7 @@ $logAction = "";
 isset($_REQUEST['orderBy']) ? $orderBy = $_REQUEST['orderBy'] : $orderBy = "acctstarttime";
 isset($_REQUEST['orderType']) ? $orderType = $_REQUEST['orderType'] : $orderType = "desc";
 isset($_REQUEST['orderType']) ? $orderType = $_REQUEST['orderType'] : $orderType = "desc";
-isset($_REQUEST['usernameOnline']) ? $usernameOnline = $_GET['usernameOnline'] : $usernameOnline = "%";
+isset($_REQUEST['usernameOnline']) ? $usernameOnline = $_GET['usernameOnline'] : $usernameOnline = "";
 
 
 include_once('../library/config_read.php');
@@ -32,7 +32,7 @@ $sql = "SELECT ".$configValues['CONFIG_DB_TBL_RADACCT'].".Username, ".$configVal
 ".$configValues['CONFIG_DB_TBL_RADACCT'].".AcctOutputOctets AS Download".
     " FROM ".$configValues['CONFIG_DB_TBL_RADACCT'].
     " WHERE (".$configValues['CONFIG_DB_TBL_RADACCT'].".AcctStopTime IS NULL OR ".
-    $configValues['CONFIG_DB_TBL_RADACCT'].".AcctStopTime = '0000-00-00 00:00:00') AND (".$configValues['CONFIG_DB_TBL_RADACCT'].".Username LIKE '".$dbSocket->escapeSimple($usernameOnline)."%')".
+    $configValues['CONFIG_DB_TBL_RADACCT'].".AcctStopTime = '0000-00-00 00:00:00') AND (".$configValues['CONFIG_DB_TBL_RADACCT'].".Username = '".$dbSocket->escapeSimple($usernameOnline)."')".
     " ORDER BY $orderBy $orderType ";
 
 $res = $dbSocket->query($sql);
