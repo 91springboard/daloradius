@@ -43,7 +43,7 @@ if (isset($_REQUEST['type']) && $_REQUEST['type'] == "batch") {
 
 	global $configValues;
 	$ticketInformation = $configValues['TICKET_INFORMATION'];
-	$ticketLogoFile = "/images/daloradius_banner.jpeg";
+	$ticketLogoFile = "/images/logo-rise-mumbai.jpg";
 
 	$sql = "SELECT ".$configValues['CONFIG_DB_TBL_DALOBILLINGPLANS'].
 			".planCost AS planCost, ".$configValues['CONFIG_DB_TBL_DALOBILLINGPLANS'].".planTimeBank AS planTimeBank, ".

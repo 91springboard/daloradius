@@ -188,9 +188,6 @@
 								<input class='button' type='button' value='Total Users CSV Export'
 									onClick=\"javascript:window.location.href='include/management/fileExport.php?reportFormat=csv&reportType=reportsBatchTotalUsers'\"
 								/>
-								<input class='button' type='button' value='Print Tickets'
-									onClick=\"javascript:window.open('include/common/printTickets.php?type=batch&plan=$plan&accounts=$exportCSV')\"
-								/>
 								<br/><br/>
 			";
 		
@@ -239,6 +236,10 @@
 			<th scope='col'> 
 			".$l['all']['CreationBy']."
 			</th>
+			
+			<th scope='col'> 
+			Print Tickets
+			</th>
 	
 			</tr> </thread>";
 	
@@ -256,6 +257,7 @@
 			$active_users = $row['active_users'];
 			$batch_cost = ($active_users * $plancost);
 			$plan_currency = $row['plancurrency'];
+			$plan_name = $row['planname'];
 			
 			echo "
 				<tr>
@@ -293,8 +295,7 @@
 						
 					</td>
 	
-					<td>".
-						$row['planname']."
+					<td>".$plan_name."
 					</td>
 	
 					<td>".$plancost."
@@ -309,6 +310,11 @@
 	
 					<td>".
 						$row['creationby']."
+					</td>
+					<td>
+						<input class='button' type='button' value='Click Here'
+									onClick=\"javascript:window.open('include/common/printTickets.php?type=batch&plan=".$plan_name."&accounts=".$exportCSV."')\"
+								/>
 					</td>
 	
 	
