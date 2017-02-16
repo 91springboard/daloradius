@@ -154,7 +154,7 @@
 
 				if (trim($value) != "") {
 
-					list($userSessions,$acctStartTime) = explode('\|\|', $value);
+					list($userSessions,$acctStartTime) = explode('||', $value);
 
 					$allUsernames .= $userSessions . ", ";
 
