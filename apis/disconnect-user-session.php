@@ -1,13 +1,15 @@
 <?php
 header("Access-Control-Allow-Origin: *");
 
+include_once('../library/config_read.php');
+
 $logAction = "";
 
-isset($_POST['username']) ? $username = $_POST['username'] : $username = "";
-isset($_POST['nasaddr']) ? $nasaddr = $_POST['nasaddr'] : $nasaddr = "";
-isset($_POST['nasport']) ? $nasport = $_POST['nasport'] : $nasport = "";
-isset($_POST['nassecret']) ? $nassecret = $_POST['nassecret'] : $nassecret = "";
-isset($_POST['customattributes']) ? $customAttributes = $_POST['customattributes'] : $customAttributes = "";
+$username = isset($_POST['username']) ? $_POST['username'] : "";
+$nasaddr = isset($_POST['nasaddr']) ? $_POST['nasaddr'] : "";
+$nasport = isset($_POST['nasport']) ? $_POST['nasport'] : "";
+$nassecret = isset($_POST['nassecret']) ? $_POST['nassecret'] : $configValues['DEFAULT_DISCONNECT_NASSECRET'];
+$customAttributes = isset($_POST['customattributes']) ? $_POST['customattributes'] : "";
 
 include 'utils.php';
 
