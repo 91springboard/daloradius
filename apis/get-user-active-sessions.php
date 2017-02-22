@@ -58,6 +58,7 @@ if ($res->numRows() > 0){
         $totalTime = time2str($row['AcctSessionTime']);
 
         array_push($response, array(
+            "Username" => $username,
             "NASIPAddress" => $nasip,
             "FramedIPAddress" => $ip,
             "CallingStationId" => $usermac,
